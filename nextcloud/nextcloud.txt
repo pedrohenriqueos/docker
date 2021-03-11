@@ -1,0 +1,10 @@
+docker run -v /home/pedro/postgres-config:/var/lib/postgresql/data -p 8081:5432 --name db-postgres -e POSTGRES_PASSWORD=docker -d postgres
+docker exec -it db-postgres bash
+su postgres
+createuser -d -e -E -P nextcloud
+psql
+CREATE DATABASE nextcloud;
+
+sudo docker run -p 8080:80 --name network-home nextcloud
+
+Configure postgres on the nextcloud in the initial settings
